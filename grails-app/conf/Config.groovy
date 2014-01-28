@@ -113,3 +113,29 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+grails.plugin.springsecurity.password.algorithm = 'bcrypt'
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'fr.ps.porteaporte.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.ps.porteaporte.UserRole'
+grails.plugin.springsecurity.authority.className = 'fr.ps.porteaporte.Role'
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.interceptUrlMap = [
+	'/'              : ['permitAll'],
+	'/digicode/**'       : ['ROLE_ADMINISTRATEUR','ROLE_MILITANT'],
+	'/carte/**'       : ['ROLE_ADMINISTRATEUR','ROLE_MILITANT'],
+	'/user/**'       : ['ROLE_ADMINISTRATEUR'],
+	'/role/**'       : ['ROLE_ADMINISTRATEUR'],
+	'/userRole/**'   : ['ROLE_ADMINISTRATEUR'],
+	'/inscriptionSeance/**'   : ['permitAll'],
+	'/quartier/**'              : ['ROLE_ADMINISTRATEUR'],
+	'/seance/**'              : ['ROLE_ADMINISTRATEUR','ROLE_MILITANT'],
+	'/logout/**'              : ['permitAll'],
+	'/login/**'              : ['permitAll']
+ ]
+grails.plugin.twitterbootstrap.fixtaglib = true
+grails.plugin.twitterbootstrap.defaultBundle = 'bundle_bootstrap'

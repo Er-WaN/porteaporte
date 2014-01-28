@@ -1,5 +1,7 @@
 modules = {
     application {
-        resource url:'js/application.js'
-    }
+        resource 'js/bootstrap.js'
+		resource 'js/jquery.min.js'
+		resource 'js/bootstrap-datepicker.js'
+	}
 }
